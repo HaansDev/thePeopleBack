@@ -14,7 +14,7 @@ var corsOption = {
     credentials: true,
     exposedHeaders: ['x-auth-token', 'content-type', 'X-Requested-With', 'Authorization', 'Accept', 'Origin'],
  }
- 
+
 app.use(cors(corsOption))
 app.use(passport.initialize())
 
@@ -25,7 +25,7 @@ app.use(express.urlencoded({
 connection.then(() => {
     console.log('Conectado a la base de datos...')
 
-    app.listen(3000, () => {
+    app.listen(process.env.PORT || 3000, () => {
         console.log("Servidor iniciado")
     })
 }).catch(function (err) {
